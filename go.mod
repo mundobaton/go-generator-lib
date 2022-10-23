@@ -1,4 +1,4 @@
-module github.com/StephanHCB/go-generator-lib
+module github.com/mundobaton/go-generator-lib
 
 go 1.14
 
