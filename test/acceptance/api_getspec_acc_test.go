@@ -2,9 +2,9 @@ package acceptance
 
 import (
 	"context"
-	generatorlib "github.com/StephanHCB/go-generator-lib"
-	"github.com/StephanHCB/go-generator-lib/api"
-	"github.com/StephanHCB/go-generator-lib/docs"
+	generatorlib "github.com/mundobaton/go-generator-lib"
+	"github.com/mundobaton/go-generator-lib/api"
+	"github.com/mundobaton/go-generator-lib/docs"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
@@ -66,11 +66,11 @@ func TestObtainGeneratorSpec_ShouldReturnCorrectStructuredSpec(t *testing.T) {
 				DefaultValue: "hello world",
 			},
 			"structureList": {
-				Description:  "A structured parameter that is a list at top level",
-				DefaultValue: []interface{} {
+				Description: "A structured parameter that is a list at top level",
+				DefaultValue: []interface{}{
 					"one",
 					"two",
-					map[interface{}]interface{} {
+					map[interface{}]interface{}{
 						"three": []interface{}{
 							"sub 1",
 							"sub 2",
@@ -79,9 +79,9 @@ func TestObtainGeneratorSpec_ShouldReturnCorrectStructuredSpec(t *testing.T) {
 				},
 			},
 			"structureMap": {
-				Description:  "A structured parameter that is a map at top level",
-				DefaultValue: map[interface{}]interface{} {
-					"species": "felis silvestris",
+				Description: "A structured parameter that is a map at top level",
+				DefaultValue: map[interface{}]interface{}{
+					"species":    "felis silvestris",
 					"commonName": "European wildcat",
 				},
 			},

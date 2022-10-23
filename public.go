@@ -2,9 +2,9 @@ package generatorlib
 
 import (
 	"context"
-	"github.com/StephanHCB/go-generator-lib/api"
-	"github.com/StephanHCB/go-generator-lib/internal/implementation"
-	"github.com/StephanHCB/go-generator-lib/internal/logfacade"
+	"github.com/mundobaton/go-generator-lib/api"
+	"github.com/mundobaton/go-generator-lib/internal/implementation"
+	"github.com/mundobaton/go-generator-lib/internal/logfacade"
 )
 
 var Instance api.Api

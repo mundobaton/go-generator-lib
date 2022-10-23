@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	aulogging "github.com/StephanHCB/go-autumn-logging"
-	"github.com/StephanHCB/go-generator-lib/api"
+	"github.com/mundobaton/go-generator-lib/api"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
@@ -13,7 +13,7 @@ import (
 	"strings"
 )
 
-type TargetDirectory struct{
+type TargetDirectory struct {
 	baseDir string
 }
 
@@ -22,7 +22,7 @@ func Instance(ctx context.Context, baseDir string) *TargetDirectory {
 }
 
 func (d *TargetDirectory) CheckValid(ctx context.Context) error {
-	if strings.HasSuffix(d.baseDir, "/") || strings.HasSuffix(d.baseDir, "\\"){
+	if strings.HasSuffix(d.baseDir, "/") || strings.HasSuffix(d.baseDir, "\\") {
 		return fmt.Errorf("error invalid target directory: baseDir %s must not contain trailing slash", d.baseDir)
 	}
 	fileInfo, err := os.Stat(d.baseDir)
@@ -138,4 +138,3 @@ func (d *TargetDirectory) parseRenderSpec(ctx context.Context, specYaml []byte) 
 func (d *TargetDirectory) renderRenderSpec(ctx context.Context, renderSpec *api.RenderSpec) ([]byte, error) {
 	return yaml.Marshal(renderSpec)
 }
-

@@ -2,10 +2,10 @@ package acceptance
 
 import (
 	"context"
-	generatorlib "github.com/StephanHCB/go-generator-lib"
-	"github.com/StephanHCB/go-generator-lib/api"
-	"github.com/StephanHCB/go-generator-lib/docs"
-	"github.com/StephanHCB/go-generator-lib/internal/repository/targetdir"
+	generatorlib "github.com/mundobaton/go-generator-lib"
+	"github.com/mundobaton/go-generator-lib/api"
+	"github.com/mundobaton/go-generator-lib/docs"
+	"github.com/mundobaton/go-generator-lib/internal/repository/targetdir"
 	"github.com/stretchr/testify/require"
 	"os"
 	"path"
@@ -25,15 +25,15 @@ func TestWriteRenderSpecWithValues_ShouldCreateMainSpec(t *testing.T) {
 	name := "main"
 
 	request := &api.Request{
-		SourceBaseDir: sourcedirpath,
-		TargetBaseDir: targetdirpath,
+		SourceBaseDir:  sourcedirpath,
+		TargetBaseDir:  targetdirpath,
 		RenderSpecFile: "generated-main.yaml",
 	}
 	docs.When("WriteRenderSpecWithValues is invoked with valid parameters")
 	parameters := map[string]interface{}{
 		"helloMessage": "hello nice world",
-		"serviceName": "something-valid",
-		"serviceUrl": "github.com/StephanHCB/scratch",
+		"serviceName":  "something-valid",
+		"serviceUrl":   "github.com/mundobaton/scratch",
 	}
 	actualResponse := generatorlib.WriteRenderSpecWithValues(context.TODO(), request, name, parameters)
 
@@ -43,7 +43,7 @@ func TestWriteRenderSpecWithValues_ShouldCreateMainSpec(t *testing.T) {
 parameters:
   helloMessage: hello nice world
   serviceName: something-valid
-  serviceUrl: github.com/StephanHCB/scratch
+  serviceUrl: github.com/mundobaton/scratch
 `
 	expectedResponse := &api.Response{
 		Success: true,
@@ -72,15 +72,15 @@ func TestWriteRenderSpecWithValues_ShouldCreateNonstandardSpec(t *testing.T) {
 	name := "main"
 
 	request := &api.Request{
-		SourceBaseDir: sourcedirpath,
-		TargetBaseDir: targetdirpath,
+		SourceBaseDir:  sourcedirpath,
+		TargetBaseDir:  targetdirpath,
 		RenderSpecFile: "generator-values.dat",
 	}
 	docs.When("WriteRenderSpecWithValues is invoked with valid parameters and a nonstandard render spec filename")
 	parameters := map[string]interface{}{
 		"helloMessage": "hello nice world",
-		"serviceName": "something-valid",
-		"serviceUrl": "github.com/StephanHCB/scratch",
+		"serviceName":  "something-valid",
+		"serviceUrl":   "github.com/mundobaton/scratch",
 	}
 	actualResponse := generatorlib.WriteRenderSpecWithValues(context.TODO(), request, name, parameters)
 
@@ -90,7 +90,7 @@ func TestWriteRenderSpecWithValues_ShouldCreateNonstandardSpec(t *testing.T) {
 parameters:
   helloMessage: hello nice world
   serviceName: something-valid
-  serviceUrl: github.com/StephanHCB/scratch
+  serviceUrl: github.com/mundobaton/scratch
 `
 	expectedResponse := &api.Response{
 		Success: true,
@@ -125,8 +125,8 @@ func TestWriteRenderSpecWithValues_ShouldCreateDefaultSpec(t *testing.T) {
 	docs.When("WriteRenderSpecWithValues is invoked with valid parameters, but empty render spec filename")
 	parameters := map[string]interface{}{
 		"helloMessage": "hello nice world",
-		"serviceName": "something-valid",
-		"serviceUrl": "github.com/StephanHCB/scratch",
+		"serviceName":  "something-valid",
+		"serviceUrl":   "github.com/mundobaton/scratch",
 	}
 	actualResponse := generatorlib.WriteRenderSpecWithValues(context.TODO(), request, name, parameters)
 
@@ -136,7 +136,7 @@ func TestWriteRenderSpecWithValues_ShouldCreateDefaultSpec(t *testing.T) {
 parameters:
   helloMessage: hello nice world
   serviceName: something-valid
-  serviceUrl: github.com/StephanHCB/scratch
+  serviceUrl: github.com/mundobaton/scratch
 `
 	expectedResponse := &api.Response{
 		Success: true,
@@ -175,8 +175,8 @@ parameters:
 
 	docs.When("WriteRenderSpecWithValues is invoked")
 	request := &api.Request{
-		SourceBaseDir: sourcedirpath,
-		TargetBaseDir: targetdirpath,
+		SourceBaseDir:  sourcedirpath,
+		TargetBaseDir:  targetdirpath,
 		RenderSpecFile: "generated-docker.yaml",
 	}
 	parameters := map[string]interface{}{
@@ -215,8 +215,8 @@ func TestWriteRenderSpecWithValues_ShouldCreateMainSpec_StructuredDefaults(t *te
 	name := "main"
 
 	request := &api.Request{
-		SourceBaseDir: sourcedirpath,
-		TargetBaseDir: targetdirpath,
+		SourceBaseDir:  sourcedirpath,
+		TargetBaseDir:  targetdirpath,
 		RenderSpecFile: "generated-main.yaml",
 	}
 	docs.When("WriteRenderSpecWithValues is invoked without specifying parameters")
@@ -238,7 +238,7 @@ parameters:
     commonName: European wildcat
     species: felis silvestris
 `
-    // note how the structureMap gets sorted...
+	// note how the structureMap gets sorted...
 
 	expectedResponse := &api.Response{
 		Success: true,
@@ -267,8 +267,8 @@ func TestWriteRenderSpecWithValues_ShouldCreateMainSpec_StructuredValues(t *test
 	name := "main"
 
 	request := &api.Request{
-		SourceBaseDir: sourcedirpath,
-		TargetBaseDir: targetdirpath,
+		SourceBaseDir:  sourcedirpath,
+		TargetBaseDir:  targetdirpath,
 		RenderSpecFile: "generated-main.yaml",
 	}
 	docs.When("WriteRenderSpecWithValues is invoked without specifying parameters")

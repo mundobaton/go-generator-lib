@@ -2,8 +2,8 @@ package acceptance
 
 import (
 	"context"
-	generatorlib "github.com/StephanHCB/go-generator-lib"
-	"github.com/StephanHCB/go-generator-lib/docs"
+	generatorlib "github.com/mundobaton/go-generator-lib"
+	"github.com/mundobaton/go-generator-lib/docs"
 	"github.com/stretchr/testify/require"
 	"testing"
 )

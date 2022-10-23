@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	generatorlib "github.com/StephanHCB/go-generator-lib"
-	"github.com/StephanHCB/go-generator-lib/api"
-	"github.com/StephanHCB/go-generator-lib/docs"
-	"github.com/StephanHCB/go-generator-lib/internal/repository/targetdir"
+	generatorlib "github.com/mundobaton/go-generator-lib"
+	"github.com/mundobaton/go-generator-lib/api"
+	"github.com/mundobaton/go-generator-lib/docs"
+	"github.com/mundobaton/go-generator-lib/internal/repository/targetdir"
 	"github.com/stretchr/testify/require"
 	"os"
 	"strings"
@@ -26,7 +26,7 @@ func TestRender_ShouldWriteExpectedFilesForDefault(t *testing.T) {
 parameters:
   helloMessage: hello world
   serviceName: 'temp-service'
-  serviceUrl: github.com/StephanHCB/temp
+  serviceUrl: github.com/mundobaton/temp
 `
 	dir := targetdir.Instance(context.TODO(), targetdirpath)
 	require.Nil(t, dir.WriteFile(context.TODO(), "generated-main.yaml", []byte(renderspec)))
@@ -53,7 +53,7 @@ func PrintMessage() {
 
 import (
 	"fmt"
-	"github.com/StephanHCB/temp/sub"
+	"github.com/mundobaton/temp/sub"
 )
 
 func main() {
@@ -243,7 +243,7 @@ func TestRender_ShouldComplainIfGenSpecNotFound(t *testing.T) {
 parameters:
   helloMessage: hello world
   serviceName: 'temp-service'
-  serviceUrl: github.com/StephanHCB/temp
+  serviceUrl: github.com/mundobaton/temp
 `
 	dir := targetdir.Instance(context.TODO(), targetdirpath)
 	require.Nil(t, dir.WriteFile(context.TODO(), "generated-missing.yaml", []byte(renderspec)))
@@ -277,7 +277,7 @@ func TestRender_ShouldComplainIfTemplateSyntaxErrors(t *testing.T) {
 parameters:
   helloMessage: hello world
   serviceName: 'temp-service'
-  serviceUrl: github.com/StephanHCB/temp
+  serviceUrl: github.com/mundobaton/temp
 `
 	dir := targetdir.Instance(context.TODO(), targetdirpath)
 	require.Nil(t, dir.WriteFile(context.TODO(), "generated-main.yaml", []byte(renderspec)))
@@ -314,7 +314,7 @@ func TestRender_ShouldComplainIfVariableValuesInvalid(t *testing.T) {
 parameters:
   helloMessage: hello world
   serviceName: 'invalid service name'
-  serviceUrl: github.com/StephanHCB/temp
+  serviceUrl: github.com/mundobaton/temp
 `
 	dir := targetdir.Instance(context.TODO(), targetdirpath)
 	require.Nil(t, dir.WriteFile(context.TODO(), "generated-main.yaml", []byte(renderspec)))
@@ -405,7 +405,7 @@ func TestRender_ShouldComplainIfRequiredParameterValueMissing(t *testing.T) {
 	renderspec := `generator: main
 parameters:
   helloMessage: hello world
-  serviceUrl: github.com/StephanHCB/temp
+  serviceUrl: github.com/mundobaton/temp
 `
 	dir := targetdir.Instance(context.TODO(), targetdirpath)
 	require.Nil(t, dir.WriteFile(context.TODO(), "generated-main.yaml", []byte(renderspec)))
@@ -435,7 +435,7 @@ func TestRender_ShouldComplainIfInvalidPattern(t *testing.T) {
 parameters:
   helloMessage: hello world
   serviceName: something
-  serviceUrl: github.com/StephanHCB/temp
+  serviceUrl: github.com/mundobaton/temp
 `
 	dir := targetdir.Instance(context.TODO(), targetdirpath)
 	require.Nil(t, dir.WriteFile(context.TODO(), "generated-variablepattern.yaml", []byte(renderspec)))

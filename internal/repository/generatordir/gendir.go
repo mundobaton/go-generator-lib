@@ -3,7 +3,7 @@ package generatordir
 import (
 	"context"
 	"fmt"
-	"github.com/StephanHCB/go-generator-lib/api"
+	"github.com/mundobaton/go-generator-lib/api"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
@@ -13,7 +13,7 @@ import (
 	"strings"
 )
 
-type GeneratorDirectory struct{
+type GeneratorDirectory struct {
 	baseDir string
 }
 
@@ -22,7 +22,7 @@ func Instance(_ context.Context, baseDir string) *GeneratorDirectory {
 }
 
 func (d *GeneratorDirectory) CheckValid(_ context.Context) error {
-	if strings.HasSuffix(d.baseDir, "/") || strings.HasSuffix(d.baseDir, "\\"){
+	if strings.HasSuffix(d.baseDir, "/") || strings.HasSuffix(d.baseDir, "\\") {
 		return fmt.Errorf("invalid generator directory: baseDir %s must not contain trailing slash", d.baseDir)
 	}
 	fileInfo, err := os.Stat(d.baseDir)

@@ -3,11 +3,11 @@ package logfacade
 import (
 	"context"
 	aulogging "github.com/StephanHCB/go-autumn-logging"
-	"github.com/StephanHCB/go-generator-lib/api"
-	"github.com/StephanHCB/go-generator-lib/internal/implementation"
+	"github.com/mundobaton/go-generator-lib/api"
+	"github.com/mundobaton/go-generator-lib/internal/implementation"
 )
 
-type GeneratorLogfacade struct{
+type GeneratorLogfacade struct {
 	Wrapped *implementation.GeneratorImpl
 }
 

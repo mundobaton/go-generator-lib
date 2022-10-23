@@ -2,10 +2,10 @@ package acceptance
 
 import (
 	"context"
-	generatorlib "github.com/StephanHCB/go-generator-lib"
-	"github.com/StephanHCB/go-generator-lib/api"
-	"github.com/StephanHCB/go-generator-lib/docs"
-	"github.com/StephanHCB/go-generator-lib/internal/repository/targetdir"
+	generatorlib "github.com/mundobaton/go-generator-lib"
+	"github.com/mundobaton/go-generator-lib/api"
+	"github.com/mundobaton/go-generator-lib/docs"
+	"github.com/mundobaton/go-generator-lib/internal/repository/targetdir"
 	"github.com/stretchr/testify/require"
 	"os"
 	"path"
